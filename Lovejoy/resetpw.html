@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Reset password</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="register">
+			<h1>Reset password</h1>
+			<form action="common.php?sj=reset" method="post" autocomplete="off">  
+				
+				<label for="captcha">  
+					<i class="fa-solid fa-question-circle"></i>  
+				 
+				</label>  
+				<input type="email" name="email"  placeholder="email" id="email" required>
+				
+				<input type="submit" value="Sent email to reset">  
+			</form>  
+			  
+			
+			<p style="text-align: center;">Already have an account, <a href="index.html">login</a></p>
+		</div>
+	</body>
+	<script src="jquery.min.js"></script>
+	<script>  
+		document.getElementById('send_captcha').addEventListener('click', function() {  
+			var email = document.getElementById('email').value;  
+			 alert(email)
+			$.ajax({  
+				type: "POST",  
+				url: "common.php?sj=login",  
+				data: {email: email},
+				success: function(response) {  
+					if(response == '1'){
+						alert('Sent');
+					}else{
+						alert('Failed');
+					}
+				}
+		});  
+	})
+	</script>
+</html>
+
+

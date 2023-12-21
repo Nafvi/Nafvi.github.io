@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>504 Error</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate"> 
+  <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT"> 
+  <meta HTTP-EQUIV="expires" CONTENT="0">
+  <style>
+    body{
+      font: 16px arial,'Microsoft Yahei','Hiragino Sans GB',sans-serif;
+    }
+    h1{
+      margin: 0;
+      color:#3a87ad;
+      font-size: 26px;
+    }
+    .content{
+      width: 45%;
+      margin: 0 auto;
+     
+    }
+    .content >div{
+      margin-top: 50px;
+      padding: 20px;
+      background: #d9edf7;  
+      border-radius: 12px;
+    }
+    .content dl{
+      color: #2d6a88;
+      line-height: 40px;
+    } 
+    .content div div {
+      padding-bottom: 20px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+      <div>
+           <h1>HTTP 504 - Gateway Timeout</h1>
+        <dl>
+          <dt>Error Explanation: Gateway timeout, the server response time has exceeded the set range.</dt>
+          <dt>Reason 1: Caused by slow IP communication between backend computers.</dt>
+          <dd>Solution:</dd>
+          <dd>If your Web server is hosted by a certain website, only the personnel responsible for that website's settings can solve this issue.</dd>
+          <dt>Reason 2: Error caused by nginx's default fastcgi process response buffer being too small.</dt>
+          <dd>Solution:</dd>
+          <dd>Typically, the default fastcgi process response buffer is 8K. You can set it larger in nginx.conf, e.g., adding: fastcgi_buffers 8 128k, which sets the fastcgi buffer to 8 blocks of 128k each. If performing a real-time operation, you may need to increase nginx's timeout parameter, e.g., to 60 seconds: send_timeout 60. After adjusting these two parameters, the “504 Gateway Time-out” error generally will not occur again, essentially resolving the issue.</dd>
+          <dt>Reason 3: PHP environment configuration issue.</dt>
+          <dd>Solution:</dd>
+          <dd>Change several configurations in php-fpm: Change max_children from 10 to 30 to ensure enough php-cgi processes are available; change request_terminate_timeout from 0s to 60s so that php-cgi process script processing timeout is 60 seconds, preventing processes from being suspended and improving efficiency. Then change several nginx configuration items to reduce FastCGI requests and maintain buffers as much as possible: change fastcgi_buffers from 4 64k to 2 256k; fastcgi_buffer_size from 64k to 128K; fastcgi_busy_buffers_size from 128K to 256K; fastcgi_temp_file_write_size from 128K to 256K. Reload the php-fpm and nginx configurations and test again. If the “504 Gateway Time-out” error does not appear, the issue is resolved.</dd>
+        </dl>
+      </div>
+    </div> 
+</body>
+</html>

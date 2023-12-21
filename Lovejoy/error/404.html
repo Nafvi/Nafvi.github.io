@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>404 Error</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+  <meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate"> 
+  <meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT"> 
+  <meta HTTP-EQUIV="expires" CONTENT="0">
+  <style>
+    body{
+      font: 16px arial,'Microsoft Yahei','Hiragino Sans GB',sans-serif;
+    }
+    h1{
+      margin: 0;
+      color:#3a87ad;
+      font-size: 26px;
+    }
+    .content{
+      width: 45%;
+      margin: 0 auto;
+     
+    }
+    .content >div{
+      margin-top: 50px;
+      padding: 20px;
+      background: #d9edf7;  
+      border-radius: 12px;
+    }
+    .content dl{
+      color: #2d6a88;
+      line-height: 40px;
+    } 
+    .content div div {
+      padding-bottom: 20px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+      <div>
+           <h1>404 - Page Not Found</h1>
+        <dl>
+          <dt>Error Description: The requested page does not exist.</dt>
+          <dt>Reason 1: Insufficient document access permissions.</dt>
+		  <dd>Solution:</dd>
+          <dd>Change file permissions to 755, for Windows system change directory permissions to writable and readable.</dd>
+          <dt>Reason 2: Due to the firewall.</dt>
+		  <dd>Solution:</dd>
+          <dd>Temporarily disable the firewall to allow WWW service.</dd>
+		  <dt>Reason 3: No default access file in the site root directory.</dt>
+		  <dd>Solution:</dd>
+          <dd>Create an index.html or index.php in the root directory.</dd>
+		  <dt>Reason 4: Incorrect site configuration directory.</dt>
+		  <dd>Solution:</dd>
+          <dd>Copy the web application to the site directory, or modify the site configuration directory to point to the application directory.</dd>
+		  <dt>Reason 5: The site uses URL rewriting.</dt>
+		  <dd>Solution:</dd>
+          <dd>Delete the URL rewriting rules, rewrite correct rules, or disable URL rewriting configuration.</dd>
+        </dl>
+      </div>
+    </div> 
+</body>
+</html>
